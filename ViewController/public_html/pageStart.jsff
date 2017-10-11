@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:button text="Introduction to Oracle ADF" id="b4" action="#{pageFlowScope.Bean.goToProject1}"/>
+  <af:button text="Introduction to Oracle ADF Business Components" id="b5" action="#{pageFlowScope.Bean.goToProject2}"/>
+  <af:button text="ADF Binding Internals " id="b6" action="#{pageFlowScope.Bean.goToProject3}"/>
+  <af:button text="ADF Task Flow - Overview " id="b7" action="#{pageFlowScope.Bean.goToProject4}"/>
+  <af:button text="Main Project" id="b8" action="#{pageFlowScope.Bean.goToProject5}"/>
+  <af:button text="Security" id="b1" action="Login.jsf"/>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:Bean-->
+</jsp:root>

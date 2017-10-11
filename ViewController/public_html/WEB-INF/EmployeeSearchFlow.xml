@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="EmployeeSearchFlow">
+    <default-activity>EmployeeSearchPage</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <view id="EmployeeSearchPage">
+      <page>/EmployeeSearchPage.jsff</page>
+    </view>
+    <task-flow-call id="EmployeeEditFlow">
+      <task-flow-reference>
+        <document>/WEB-INF/EmployeeEditFlow.xml</document>
+        <id>EmployeeEditFlow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="EmployeeCreateFlow">
+      <task-flow-reference>
+        <document>/WEB-INF/EmployeeCreateFlow.xml</document>
+        <id>EmployeeCreateFlow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-return id="cancel">
+      <outcome>
+        <name>cancel</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__1">
+      <from-activity-id>EmployeeSearchPage</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>edit</from-outcome>
+        <to-activity-id>EmployeeEditFlow</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__3">
+        <from-outcome>create</from-outcome>
+        <to-activity-id>EmployeeCreateFlow</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__4">
+        <from-outcome>cancel</from-outcome>
+        <to-activity-id>cancel</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

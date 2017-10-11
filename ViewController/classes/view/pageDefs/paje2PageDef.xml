@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.12.2" id="paje2PageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Countries2View1" RangeSize="-1" DataControl="AppModuleDataControl" id="Countries2View1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="Countries2View1Iterator" id="Countries2View1" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="model.Countries2View" Name="Countries2View1"/>
+    </tree>
+  </bindings>
+</pageDefinition>

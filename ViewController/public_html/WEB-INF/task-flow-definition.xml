@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="task-flow-definition">
+    <default-activity>pageStart</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__21">
+      <name>param</name>
+      <value>#{pageFlowScope.param}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <managed-bean id="__20">
+      <managed-bean-name>managedBean1</managed-bean-name>
+      <managed-bean-class></managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__23">
+      <managed-bean-name>Bean</managed-bean-name>
+      <managed-bean-class>view.Bean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="pageStart">
+      <page>/pageStart.jsff</page>
+    </view>
+    <router id="router1">
+      <case id="__22">
+        <expression>#{pageFlowScope.param =='goToPage1'}</expression>
+        <outcome>goToPage1</outcome>
+      </case>
+      <case id="__24">
+        <expression>#{pageFlowScope.param =='goToPage2'}</expression>
+        <outcome>goToPage2</outcome>
+      </case>
+      <case id="__28">
+        <expression>#{pageFlowScope.param =='goToOllProject'}</expression>
+        <outcome>goToOllProject</outcome>
+      </case>
+      <case id="__29">
+        <expression>#{pageFlowScope.param =='goToProject1'}</expression>
+        <outcome>goToProject1</outcome>
+      </case>
+      <case id="__2">
+        <expression>#{pageFlowScope.param =='goToProject2'}</expression>
+        <outcome>goToProject2</outcome>
+      </case>
+      <case id="__4">
+        <expression>#{pageFlowScope.param =='goToProject3'}</expression>
+        <outcome>goToProject3</outcome>
+      </case>
+      <case id="__6">
+        <expression>#{pageFlowScope.param =='goToProject4'}</expression>
+        <outcome>goToProject4</outcome>
+      </case>
+      <case id="__9">
+        <expression>#{pageFlowScope.param =='goToProject5'}</expression>
+        <outcome>goToProject5</outcome>
+      </case>
+      <default-outcome>pageStart</default-outcome>
+    </router>
+    <task-flow-call id="OllProject">
+      <task-flow-reference>
+        <document>/WEB-INF/OllProject.xml</document>
+        <id>OllProject</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="project1">
+      <task-flow-reference>
+        <document>/WEB-INF/project1.xml</document>
+        <id>project1</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="project2">
+      <task-flow-reference>
+        <document>/WEB-INF/project2.xml</document>
+        <id>project2</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="project3">
+      <task-flow-reference>
+        <document>/WEB-INF/project3.xml</document>
+        <id>project3</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="project41">
+      <task-flow-reference>
+        <document>/WEB-INF/project4.xml</document>
+        <id>project4</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="EmployeeSearchFlow">
+      <task-flow-reference>
+        <document>/WEB-INF/EmployeeSearchFlow.xml</document>
+        <id>EmployeeSearchFlow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <control-flow-rule id="__10">
+      <from-activity-id>pageStart</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome>goTo</from-outcome>
+        <to-activity-id>router1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__12">
+      <from-activity-id>router1</from-activity-id>
+      <control-flow-case id="__19">
+        <from-outcome>pageStart</from-outcome>
+        <to-activity-id>pageStart</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__25">
+        <from-outcome>goToOllProject</from-outcome>
+        <to-activity-id>OllProject</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__7">
+        <from-outcome>goToProject1</from-outcome>
+        <to-activity-id>project1</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__1">
+        <from-outcome>goToProject2</from-outcome>
+        <to-activity-id>project2</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__3">
+        <from-outcome>goToProject3</from-outcome>
+        <to-activity-id>project3</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__8">
+        <from-outcome>goToProject4</from-outcome>
+        <to-activity-id>project41</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>goToProject5</from-outcome>
+        <to-activity-id>EmployeeSearchFlow</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

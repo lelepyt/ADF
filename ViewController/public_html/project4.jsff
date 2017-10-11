@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1" topHeight="47px">
+    <f:facet name="start"/>
+    <f:facet name="end"/>
+    <f:facet name="top">
+      <af:button text="Back" id="b3" action="goToStart" inlineStyle="color:Red;"/>
+    </f:facet>
+    <f:facet name="bottom"/>
+    <f:facet name="center">
+      <af:group id="g1">
+        <af:button text="paje1" id="b1" action="#{Bean.goPaje1}"/>
+        <af:button text="paje2" id="b2" action="#{Bean.goPaje2}"/>
+      </af:group>
+    </f:facet>
+  </af:panelStretchLayout>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:Bean-->
+</jsp:root>

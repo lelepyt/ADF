@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+  <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="368">
+    <f:facet name="first">
+      <af:panelSplitter id="ps2" splitterPosition="634">
+        <f:facet name="first">
+          <af:showDetailHeader text="showDetailHeader 1" disclosed="true" id="sdh1">
+            <f:facet name="context"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+            <af:panelFormLayout id="pfl1">
+              <af:inputText value="#{bindings.CountryId1.inputValue}" label="#{bindings.CountryId1.hints.label}"
+                            required="#{bindings.CountryId1.hints.mandatory}" readOnly="true"
+                            columns="#{bindings.CountryId1.hints.displayWidth}"
+                            maximumLength="#{bindings.CountryId1.hints.precision}"
+                            shortDesc="#{bindings.CountryId1.hints.tooltip}" id="it1">
+                <f:validator binding="#{bindings.CountryId1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.CountryName1.inputValue}" label="#{bindings.CountryName1.hints.label}"
+                            required="#{bindings.CountryName1.hints.mandatory}" readOnly="true"
+                            columns="#{bindings.CountryName1.hints.displayWidth}"
+                            maximumLength="#{bindings.CountryName1.hints.precision}"
+                            shortDesc="#{bindings.CountryName1.hints.tooltip}" id="it2">
+                <f:validator binding="#{bindings.CountryName1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.RegionId1.inputValue}" label="#{bindings.RegionId1.hints.label}"
+                            required="#{bindings.RegionId1.hints.mandatory}" readOnly="true"
+                            columns="#{bindings.RegionId1.hints.displayWidth}"
+                            maximumLength="#{bindings.RegionId1.hints.precision}"
+                            shortDesc="#{bindings.RegionId1.hints.tooltip}" id="it3">
+                <f:validator binding="#{bindings.RegionId1.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.RegionId1.format}"/>
+              </af:inputText>
+              <f:facet name="footer">
+                <af:panelGroupLayout layout="vertical" id="pgl1">
+                  <af:panelGroupLayout layout="horizontal" id="pgl2">
+                    <af:button actionListener="#{bindings.First.execute}" text="First"
+                               disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"/>
+                    <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
+                               disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
+                    <af:button actionListener="#{bindings.Next.execute}" text="Next"
+                               disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
+                    <af:button actionListener="#{bindings.Last.execute}" text="Last"
+                               disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"/>
+                  </af:panelGroupLayout>
+                  <af:button text="Submit" id="b5"/>
+                  <af:button text="Back" id="b6" action="goToStart" inlineStyle="color:Red;"/>
+                </af:panelGroupLayout>
+              </f:facet>
+            </af:panelFormLayout>
+          </af:showDetailHeader>
+        </f:facet>
+        <f:facet name="second">
+          <af:panelCollection id="pc1">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="statusbar"/>
+            <af:table value="#{bindings.Countries2View1.collectionModel}" var="row"
+                      rows="#{bindings.Countries2View1.rangeSize}"
+                      emptyText="#{bindings.Countries2View1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0" selectedRowKeys="#{bindings.Countries2View1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.Countries2View1.collectionModel.makeCurrent}" rowSelection="single"
+                      fetchSize="#{bindings.Countries2View1.rangeSize}"
+                      filterModel="#{bindings.Countries2View1Query.queryDescriptor}" filterVisible="true"
+                      queryListener="#{bindings.Countries2View1Query.processQuery}" varStatus="vs" id="t1"
+                      partialTriggers=":::b1 :::b2 :::b3 :::b4">
+              <af:column sortProperty="#{bindings.Countries2View1.hints.CountryId.name}" filterable="true"
+                         sortable="true" headerText="#{bindings.Countries2View1.hints.CountryId.label}" id="c1">
+                <af:outputText value="#{row.CountryId}" shortDesc="#{bindings.Countries2View1.hints.CountryId.tooltip}"
+                               id="ot1"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.Countries2View1.hints.CountryName.name}" filterable="true"
+                         sortable="true" headerText="#{bindings.Countries2View1.hints.CountryName.label}" id="c2">
+                <af:outputText value="#{row.CountryName}"
+                               shortDesc="#{bindings.Countries2View1.hints.CountryName.tooltip}" id="ot2"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.Countries2View1.hints.RegionId.name}" filterable="true"
+                         sortable="true" headerText="#{bindings.Countries2View1.hints.RegionId.label}" id="c3">
+                <af:outputText value="#{row.RegionId}" shortDesc="#{bindings.Countries2View1.hints.RegionId.tooltip}"
+                               id="ot3">
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.Countries2View1.hints.RegionId.format}"/>
+                </af:outputText>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+        </f:facet>
+      </af:panelSplitter>
+    </f:facet>
+    <f:facet name="second">
+      <af:panelDashboard id="pd1" rowHeight="450px">
+        <af:panelBox text="PanelBox1" id="pb1">
+          <f:facet name="toolbar"/>
+          <af:componentDragSource/>
+          <af:panelFormLayout id="pfl2">
+            <af:inputNumberSlider value="#{bindings.CountryId.inputValue}" label="#{bindings.CountryId.hints.label}"
+                                  required="#{bindings.CountryId.hints.mandatory}"
+                                  shortDesc="#{bindings.CountryId.hints.tooltip}" id="it5">
+              <f:validator binding="#{bindings.CountryId.validator}"/>
+            </af:inputNumberSlider>
+            <af:inputText value="#{bindings.CountryName.inputValue}" label="#{bindings.CountryName.hints.label}"
+                          required="#{bindings.CountryName.hints.mandatory}"
+                          columns="#{bindings.CountryName.hints.displayWidth}"
+                          maximumLength="#{bindings.CountryName.hints.precision}"
+                          shortDesc="#{bindings.CountryName.hints.tooltip}" id="it6">
+              <f:validator binding="#{bindings.CountryName.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.RegionId.inputValue}" label="#{bindings.RegionId.hints.label}"
+                          required="#{bindings.RegionId.hints.mandatory}"
+                          columns="#{bindings.RegionId.hints.displayWidth}"
+                          maximumLength="#{bindings.RegionId.hints.precision}"
+                          shortDesc="#{bindings.RegionId.hints.tooltip}" id="it7">
+              <f:validator binding="#{bindings.RegionId.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.RegionId.format}"/>
+            </af:inputText>
+          </af:panelFormLayout>
+        </af:panelBox>
+        <af:panelBox text="PanelBox2" id="pb2">
+          <f:facet name="toolbar"/>
+          <af:componentDragSource/>
+          <dvt:barChart id="barChart1" var="row" value="#{bindings.Countries2View11.collectionModel}">
+            <dvt:chartLegend id="cl1"/>
+            <f:facet name="dataStamp">
+              <dvt:chartDataItem id="di1" series="#{bindings.Countries2View11.hints.RegionId.label}"
+                                 value="#{row.RegionId}" group="#{row.CountryName} #{row.CountryId}"/>
+            </f:facet>
+          </dvt:barChart>
+        </af:panelBox>
+      </af:panelDashboard>
+    </f:facet>
+  </af:panelSplitter>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:Bean-->
+</jsp:root>

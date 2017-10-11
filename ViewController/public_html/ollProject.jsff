@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:button text="back" id="b1" action="#{pageFlowScope.Bean.b1_action}"/>
+  <af:button text="button 2" id="b2"/>
+  <af:button text="button 3" id="b3"/>
+  <af:button text="button 4" id="b4"/>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:Bean-->
+</jsp:root>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="JhistDeptFkLink1"
+  Version="12.2.1.12.2"
+  InheritPersonalization="merge">
+  <ViewLinkDefEnd
+    Name="Departments1View1"
+    Cardinality="1"
+    Source="true"
+    Owner="model.Departments1View1">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="Departments1View1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Departments1View1.DepartmentId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="JobHistoryView1"
+    Cardinality="-1"
+    Owner="model.JobHistoryView1">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="JobHistoryView1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.JobHistoryView1.DepartmentId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

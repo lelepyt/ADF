@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.12.2" id="project1PageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CountriesView1" RangeSize="25" DataControl="AppModuleDataControl" id="CountriesView1Iterator"/>
+    <iterator Binds="Countries2View1" RangeSize="-1" DataControl="AppModuleDataControl" id="Countries2View1Iterator"/>
+    <searchRegion Binds="Countries2View1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="Countries2View1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="CountriesView1Iterator" id="CountryId">
+      <AttrNames>
+        <Item Value="CountryId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CountriesView1Iterator" id="CountryName">
+      <AttrNames>
+        <Item Value="CountryName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CountriesView1Iterator" id="RegionId">
+      <AttrNames>
+        <Item Value="RegionId"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="Countries2View1Iterator" id="Countries2View11" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="model.Countries2View" Name="Countries2View11">
+        <AttrNames>
+          <Item Value="RegionId"/>
+          <Item Value="CountryName"/>
+          <Item Value="CountryId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="Countries2View1Iterator" id="CountryId1">
+      <AttrNames>
+        <Item Value="CountryId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Countries2View1Iterator" id="CountryName1">
+      <AttrNames>
+        <Item Value="CountryName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Countries2View1Iterator" id="RegionId1">
+      <AttrNames>
+        <Item Value="RegionId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="Countries2View1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="Countries2View1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="Countries2View1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="Countries2View1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="Countries2View1Iterator" id="Countries2View1">
+      <nodeDefinition DefName="model.Countries2View" Name="Countries2View10">
+        <AttrNames>
+          <Item Value="CountryId"/>
+          <Item Value="CountryName"/>
+          <Item Value="RegionId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>
